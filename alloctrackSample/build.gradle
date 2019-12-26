@@ -9,10 +9,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        externalNativeBuild {
-            cmake {
-                abiFilters "armeabi-v7a","x86"
-            }
+//        externalNativeBuild {
+//            cmake {
+//                abiFilters "armeabi-v7a","x86"
+//            }
+//        }
+        ndk {
+            abiFilters "armeabi-v7a","x86" //选择要使用的平台
         }
     }
     buildTypes {
@@ -21,9 +24,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    externalNativeBuild {
-        cmake {
-            path "src/main/cpp/CMakeLists.txt"
+//    externalNativeBuild {
+//        cmake {
+//            path "src/main/cpp/CMakeLists.txt"
+//        }
+//    }
+
+    sourceSets {
+        main{
+            jniLibs.srcDirs = ['libs']
         }
     }
 }

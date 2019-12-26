@@ -2,6 +2,7 @@ package com.dodola.alloctrack;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Message;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             initExternalReportPath();
         }
-        tracker.initForArt(BuildConfig.VERSION_CODE, 5000);//从 start 开始触发到5000的数据就 dump 到文件中
+        tracker.initForArt(25, 5000);//从 start 开始触发到5000的数据就 dump 到文件中
         dumpLogBtn = findViewById(R.id.dump_log);
         findViewById(R.id.btn_start).setOnClickListener(new View.OnClickListener() {
             @Override

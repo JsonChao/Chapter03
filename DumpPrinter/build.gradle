@@ -24,6 +24,8 @@ jar {
             it.isDirectory() ? it : zipTree(it)
         }
     }
+
+    sourceSets.main.java.srcDirs = ['src']
 }
 
 // copy the jar to work directory
